@@ -1,0 +1,16 @@
+{
+    "name": "smoaking90/workopia-php",
+    "description": "Job listing application",
+    "authors":[
+        {
+            "name": "Charlie Smoak",
+            "email": "cwsmoak90@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":{
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
