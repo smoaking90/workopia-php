@@ -2,6 +2,8 @@
 
 namespace Framework;
 
+use App\Controllers\ErrorController;
+
 class Router{
     protected array $routes = [];
 
@@ -69,16 +71,7 @@ class Router{
 
     }
 
-    /**
-     * load error page
-     * @param int $httpCode
-     * @return void
-     */
-    public function error($httpCode = 404){
-        http_response_code($httpCode);
-        loadView("error/{$httpCode}");
-        exit;
-    }
+    
 
     /**
      * Route the request
@@ -100,18 +93,8 @@ class Router{
                 return;
             }
         }
-        $this->error();
+        ErrorController::notFound();
      }
 }
 
 
-// OLD SIMPLE WAY
-
-// $routes = require basePath('routes.php');
-
-// if(array_key_exists($uri, $routes)){
-//     require(basePath($routes[$uri]));
-// }else{
-//     http_response_code(404);
-//     require(basePath($routes['404']));
-// }
